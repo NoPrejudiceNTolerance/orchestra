@@ -8,7 +8,6 @@ public class Event {
 	
 	private String name;
 	private Date d; //choose a type
-	private ArrayList<Musician> musicians;
 	private String details;
 	
 	
@@ -43,13 +42,6 @@ public class Event {
 	}
 	public void setD(Date d) {
 		this.d = d;
-	}
-	
-	public ArrayList<Musician> getMusicians() {
-		return musicians;
-	}
-	public void setMusicians(ArrayList<Musician> musicians) {
-		this.musicians = musicians;
 	}
 
 	public static ArrayList<Event> getInstances() {

@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class General extends Event {
 	private Musician conductor;
+	private ArrayList<Musician> musicians;
 	
 	
 	
@@ -14,6 +15,13 @@ public class General extends Event {
 		this.conductor = conductor;
 	}
 	
+	
+	public ArrayList<Musician> getMusicians() {
+		return musicians;
+	}
+	public void setMusicians(ArrayList<Musician> musicians) {
+		this.musicians = musicians;
+	}
 	
 	public Musician getConductor() {
 		return conductor;
