@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class Competition extends Event {
 	private ArrayList<ArrayList<Musician>> teams;
@@ -9,8 +9,8 @@ public class Competition extends Event {
 	
 	
 	
-	public Competition(String name, Date d, String details) {
-		super(name, d, details);
+	public Competition(String name, Calendar cal, String details) {
+		super(name, cal, details);
 	}
 	
 	

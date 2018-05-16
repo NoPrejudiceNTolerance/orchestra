@@ -6,8 +6,6 @@ public class Customer extends User {
 	private ArrayList<Event> tickets;
 	
 	
-	
-	
 	public Customer(String login, String pass) {
 		super(login, pass);
 	}

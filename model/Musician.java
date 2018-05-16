@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 public class Musician {
 	static private ArrayList<Musician> instances;
@@ -35,4 +36,6 @@ public class Musician {
 	public void setInstruments(ArrayList<Instrument> instruments) {
 		this.instruments = instruments;
 	}
+	
+	
 }
