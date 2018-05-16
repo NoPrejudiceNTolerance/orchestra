@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Event {
-	static private ArrayList<Event> instances;
+	static private ArrayList<Event> instances = new ArrayList<Event>();
 	
 	private String name;
 	private Calendar cal; //choose a type
 	private String details;
-	
-	
 	
 	
 	public Event(String name, Calendar cal, String details) {
@@ -46,6 +44,12 @@ public class Event {
 
 	public static ArrayList<Event> getInstances() {
 		return instances;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Event [name=" + name + ", cal=" + cal.getTime() + ", details=" + details + "]";
 	}	
 	
 }

@@ -7,7 +7,6 @@ import java.util.Calendar;
 public class OrchestraMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		Event model = updateEvent();
 		view.View view = new View();
