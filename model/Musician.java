@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class Musician extends Observable {
+public class Musician {
 	static private ArrayList<Musician> instances;
 	
 	private String name;

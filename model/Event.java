@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Event {
-	static private ArrayList<Event> instances = new ArrayList<Event>();
+	static private ArrayList<Event> instances;
 	
 	private String name;
 	private Calendar cal; //choose a type
 	private String details;
-	
 	
 	public Event(String name, Calendar cal, String details) {
 		
@@ -17,6 +16,7 @@ public class Event {
 		this.cal = cal;
 		this.details = details;
 		
+		instances = new ArrayList<Event>();
 		instances.add(this);
 	}
 	
