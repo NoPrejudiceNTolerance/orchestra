@@ -1,8 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Musician {
+public class Musician extends Observable {
 	static private ArrayList<Musician> instances;
 	
 	private String name;
@@ -35,4 +36,6 @@ public class Musician {
 	public void setInstruments(ArrayList<Instrument> instruments) {
 		this.instruments = instruments;
 	}
+	
+	
 }

@@ -1,22 +1,22 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class Event {
 	static private ArrayList<Event> instances;
 	
 	private String name;
-	private Date d; //choose a type
+	private Calendar cal; //choose a type
 	private String details;
 	
 	
 	
 	
-	public Event(String name, Date d, String details) {
-		super();
+	public Event(String name, Calendar cal, String details) {
+		
 		this.name = name;
-		this.d = d;
+		this.cal = cal;
 		this.details = details;
 		
 		instances.add(this);
@@ -37,11 +37,11 @@ public class Event {
 		this.name = name;
 	}
 	
-	public Date getD() {
-		return d;
+	public Calendar getD() {
+		return cal;
 	}
-	public void setD(Date d) {
-		this.d = d;
+	public void setD(Calendar cal) {
+		this.cal = cal;
 	}
 
 	public static ArrayList<Event> getInstances() {

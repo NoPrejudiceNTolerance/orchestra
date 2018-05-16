@@ -1,17 +1,15 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class General extends Event {
 	private Musician conductor;
 	private ArrayList<Musician> musicians;
 	
 	
-	
-	
-	public General(String name, Date d, String details, Musician conductor) {
-		super(name, d, details);
+	public General(String name, Calendar cal, String details, Musician conductor) {
+		super(name, cal, details);
 		this.conductor = conductor;
 	}
 	
