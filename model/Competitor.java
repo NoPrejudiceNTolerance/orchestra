@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Competitor {
+import java.io.Serializable;
+
+public abstract class Competitor implements Serializable{
 	private String name;
 	
 	
