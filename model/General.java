@@ -16,6 +16,7 @@ public class General extends Event {
 	protected General(String name, Calendar cal, String details, String conductor) {
 		super(name, cal, details);
 		this.conductor = conductor;
+		this.musicians = new ArrayList<String>();
 	}
 	
 	static public void addEvent(String name, Calendar cal, String details, String conductor) {

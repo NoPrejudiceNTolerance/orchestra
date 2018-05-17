@@ -16,6 +16,7 @@ public class Competition extends Event {
 	
 	protected Competition(String name, Calendar cal, String details) {
 		super(name, cal, details);
+		this.competitors = new ArrayList<Competitor>();
 	}
 	
 	static public void addEvent(String name, Calendar cal, String details) {
