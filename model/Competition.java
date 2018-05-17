@@ -14,12 +14,23 @@ public class Competition extends Event {
 	
 	
 	
-	public Competition(String name, Calendar cal, String details) {
+	protected Competition(String name, Calendar cal, String details) {
 		super(name, cal, details);
 	}
 	
 	static public void addEvent(String name, Calendar cal, String details) {
 		new Competition(name, cal, details);
+	}
+	
+	static public boolean modifyEvent(String name, String newName, Calendar cal, String details) {
+		Event e = Event.searchEvent(name);
+		if(e != null && e.getClass() == Competition.class) {
+			e.setName(newName);
+			e.setD(cal);
+			e.setDetails(details);
+			return true;
+		}
+		return false;
 	}
 	
 	

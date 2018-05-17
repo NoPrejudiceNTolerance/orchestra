@@ -23,6 +23,13 @@ public class Musician extends Competitor implements Serializable {
 		instances.add(this);
 	}
 	
+	static public Musician searchMusician(String name) {
+		for(Musician instance : instances) {
+			if(instance.getName().toUpperCase().equals(name.toUpperCase())) return instance;
+		}
+		return null;
+	}
+	
 	
 	public static ArrayList<Musician> getInstances() {
 		return instances;

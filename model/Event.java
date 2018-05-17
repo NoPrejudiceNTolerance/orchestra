@@ -15,25 +15,51 @@ public abstract class Event implements Serializable{
 	private String name;
 	private Calendar cal; //choose a type
 	private String details;
+	private ArrayList<Song> songs;
 	
 	protected Event(String name, Calendar cal, String details) {
 		this.name = name;
 		this.cal = cal;
 		this.details = details;
+		this.songs = new ArrayList<Song>();
 		
 		instances.add(this);
 	}
 	
-	static public boolean deleteEvent(String name) {
+	static public Event searchEvent(String name) {
 		for(Event instance : instances) {
-			if(instance.name.toUpperCase().equals(name.toUpperCase())) {
-				instances.remove(instance);
-				return true;
-			}
+			if(instance.name.toUpperCase().equals(name.toUpperCase())) return instance;
+		}
+		return null;
+	}
+	
+	static public boolean deleteEvent(String name) {
+		Event e = Event.searchEvent(name);
+		if(e != null) {
+			instances.remove(e);
+			return true;
 		}
 		return false;
 	}
 	
+	public boolean addSong(Song s) {
+		if(!songs.contains(s)) {
+			this.songs.add(s);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean deleteSong(Song s) {
+		return songs.remove(s);
+	}
+	
+	
+	
+	
+	public ArrayList<Song> getSongs() {
+		return songs;
+	}
 	
 	public String getDetails() {
 		return details;

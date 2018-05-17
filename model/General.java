@@ -10,10 +10,10 @@ public class General extends Event {
 	private static final long serialVersionUID = 1L;
 	
 	private Musician conductor;
-	private ArrayList<Musician> musicians;
+	private ArrayList<String> musicians;
 	
 	
-	public General(String name, Calendar cal, String details, Musician conductor) {
+	protected General(String name, Calendar cal, String details, Musician conductor) {
 		super(name, cal, details);
 		this.conductor = conductor;
 	}
@@ -22,11 +22,37 @@ public class General extends Event {
 		new General(name, cal, details, conductor);
 	}
 	
+	static public boolean modifyEvent(String name, String newName, Calendar cal, String details, Musician conductor) {
+		Event e = Event.searchEvent(name);
+		if(e != null && e.getClass() == General.class) {
+			e.setName(newName);
+			e.setD(cal);
+			e.setDetails(details);
+			((General)e).setConductor(conductor);
+			return true;
+		}
+		return false;
+	}
 	
-	public ArrayList<Musician> getMusicians() {
+	public boolean addMusician(String name) {
+		if(!musicians.contains(name)) {
+			this.musicians.add(name);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean deleteMusician(String name) {
+		return musicians.remove(name);
+	}
+	
+	
+	
+	
+	public ArrayList<String> getMusicians() {
 		return musicians;
 	}
-	public void setMusicians(ArrayList<Musician> musicians) {
+	public void setMusicians(ArrayList<String> musicians) {
 		this.musicians = musicians;
 	}
 	
