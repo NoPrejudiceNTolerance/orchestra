@@ -20,6 +20,8 @@ public class Instrument implements Serializable{
 		super();
 		this.name = name;
 		
+		if(instances == null) instances = new ArrayList<Instrument>();
+		
 		instances.add(this);
 	}
 	
