@@ -9,20 +9,20 @@ public class General extends Event {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Musician conductor;
+	private String conductor;
 	private ArrayList<String> musicians;
 	
 	
-	protected General(String name, Calendar cal, String details, Musician conductor) {
+	protected General(String name, Calendar cal, String details, String conductor) {
 		super(name, cal, details);
 		this.conductor = conductor;
 	}
 	
-	static public void addEvent(String name, Calendar cal, String details, Musician conductor) {
+	static public void addEvent(String name, Calendar cal, String details, String conductor) {
 		new General(name, cal, details, conductor);
 	}
 	
-	static public boolean modifyEvent(String name, String newName, Calendar cal, String details, Musician conductor) {
+	static public boolean modifyEvent(String name, String newName, Calendar cal, String details, String conductor) {
 		Event e = Event.searchEvent(name);
 		if(e != null && e.getClass() == General.class) {
 			e.setName(newName);
@@ -56,10 +56,10 @@ public class General extends Event {
 		this.musicians = musicians;
 	}
 	
-	public Musician getConductor() {
+	public String getConductor() {
 		return conductor;
 	}
-	public void setConductor(Musician conductor) {
+	public void setConductor(String conductor) {
 		this.conductor = conductor;
 	}
 	
