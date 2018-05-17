@@ -18,9 +18,9 @@ public class Musician extends Competitor implements Serializable {
 	
 	public Musician(String name) {
 		super(name);
+		this.instruments = new ArrayList<String>();
 		
-		if(instances == null) instances = new ArrayList<Musician>();
-		
+		if (instances == null) instances = new ArrayList<Musician>();
 		instances.add(this);
 	}
 	

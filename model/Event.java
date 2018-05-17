@@ -62,7 +62,7 @@ public abstract class Event implements Serializable{
 	public boolean deleteSong(String name) {
 		Song s = this.searchSong(name);
 		if(s != null) {
-			instances.remove(s);
+			this.songs.remove(s);
 			return true;
 		}
 		return false;

@@ -1,6 +1,8 @@
 package model;
 
-public class Song{
+import java.io.Serializable;
+
+public class Song implements Serializable{
 	private String name;
 	private String composer;
 	
@@ -25,5 +27,10 @@ public class Song{
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return this.composer + " - " + this.name;
 	}
 }
