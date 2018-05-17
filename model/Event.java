@@ -1,9 +1,15 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Event {
+public class Event implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	static private ArrayList<Event> instances;
 	
 	private String name;
@@ -16,7 +22,6 @@ public class Event {
 		this.cal = cal;
 		this.details = details;
 		
-		instances = new ArrayList<Event>();
 		instances.add(this);
 	}
 	
@@ -44,6 +49,10 @@ public class Event {
 
 	public static ArrayList<Event> getInstances() {
 		return instances;
+	}
+	
+	public static void setInstances(ArrayList<Event> events) {
+		instances = events;
 	}
 
 

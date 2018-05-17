@@ -1,6 +1,12 @@
 package model;
 
-public class Song {
+import java.io.Serializable;
+
+public class Song{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	
 	

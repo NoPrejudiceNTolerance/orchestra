@@ -4,20 +4,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Competition extends Event {
-	private ArrayList<ArrayList<Musician>> teams;
-	
-	
-	
+	private ArrayList<Team> teams;
 	
 	public Competition(String name, Calendar cal, String details) {
 		super(name, cal, details);
 	}
 	
-	
-	public ArrayList<ArrayList<Musician>> getTeams() {
+	public ArrayList<Team> getTeams() {
 		return teams;
 	}
-	public void setTeams(ArrayList<ArrayList<Musician>> teams) {
+	public void setTeams(ArrayList<Team> teams) {
 		this.teams = teams;
 	}
 	
