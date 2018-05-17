@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Observable;
 
 public class Musician extends Competitor implements Serializable {
 	/**
@@ -12,7 +11,7 @@ public class Musician extends Competitor implements Serializable {
 
 	static private ArrayList<Musician> instances;
 	
-	private ArrayList<Instrument> instruments;
+	private ArrayList<String> instruments;
 	
 	
 	
@@ -49,6 +48,27 @@ public class Musician extends Competitor implements Serializable {
 		return false;
 	}
 	
+	static public boolean modifyMusician(String name, String newName) {
+		Musician m = Musician.searchMusician(name);
+		if(m != null && m.getClass() == Musician.class) {
+			m.setName(newName);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean addInstrument(String name) {
+		if(!instruments.contains(name)) {
+			this.instruments.add(name);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean deleteInstrument(String name) {
+		return instruments.remove(name);
+	}
+	
 	
 	
 	
@@ -59,10 +79,10 @@ public class Musician extends Competitor implements Serializable {
 		instances = musicians;
 	}
 
-	public ArrayList<Instrument> getInstruments() {
+	public ArrayList<String> getInstruments() {
 		return instruments;
 	}
-	public void setInstruments(ArrayList<Instrument> instruments) {
+	public void setInstruments(ArrayList<String> instruments) {
 		this.instruments = instruments;
 	}
 	
