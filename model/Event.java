@@ -23,6 +23,8 @@ public abstract class Event implements Serializable{
 		this.details = details;
 		this.songs = new ArrayList<Song>();
 		
+		if(instances == null) instances = new ArrayList<Event>();
+		
 		instances.add(this);
 	}
 	
