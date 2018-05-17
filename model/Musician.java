@@ -3,17 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class Musician {
+public class Musician extends Competitor {
 	static private ArrayList<Musician> instances;
 	
-	private String name;
 	private ArrayList<Instrument> instruments;
 	
 	
 	
 	
 	public Musician(String name) {
-		this.name = name;
+		super(name);
 		
 		instances.add(this);
 	}
@@ -21,13 +20,6 @@ public class Musician {
 	
 	public static ArrayList<Musician> getInstances() {
 		return instances;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public ArrayList<Instrument> getInstruments() {
