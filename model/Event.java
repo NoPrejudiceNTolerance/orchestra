@@ -52,8 +52,20 @@ public abstract class Event implements Serializable{
 		return false;
 	}
 	
-	public boolean deleteSong(Song s) {
-		return songs.remove(s);
+	public Song searchSong(String name) {
+		for(Song song : songs) {
+			if(song.getName().toUpperCase().equals(name.toUpperCase())) return song;
+		}
+		return null;
+	}
+	
+	public boolean deleteSong(String name) {
+		Song s = this.searchSong(name);
+		if(s != null) {
+			instances.remove(s);
+			return true;
+		}
+		return false;
 	}
 	
 	

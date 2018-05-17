@@ -19,8 +19,11 @@ public class General extends Event {
 		this.musicians = new ArrayList<String>();
 	}
 	
-	static public void addEvent(String name, Calendar cal, String details, String conductor) {
-		new General(name, cal, details, conductor);
+	static public boolean addEvent(String name, Calendar cal, String details, String conductor) {
+		if(Event.searchEvent(name) == null) {
+			new General(name, cal, details, conductor);
+		}
+		return false;
 	}
 	
 	static public boolean modifyEvent(String name, String newName, Calendar cal, String details, String conductor) {

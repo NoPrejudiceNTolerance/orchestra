@@ -20,6 +20,8 @@ public class Musician extends Competitor implements Serializable {
 	public Musician(String name) {
 		super(name);
 		
+		if(instances == null) instances = new ArrayList<Musician>();
+		
 		instances.add(this);
 	}
 	
@@ -29,6 +31,25 @@ public class Musician extends Competitor implements Serializable {
 		}
 		return null;
 	}
+	
+	static public boolean addMusician(String name) {
+		if(Musician.searchMusician(name) == null) {
+			new Musician(name);
+			return true;
+		}
+		return false;
+	}
+	
+	static public boolean deleteMusician(String name) {
+		Musician m = Musician.searchMusician(name);
+		if(m != null) {
+			Musician.instances.remove(m);
+			return true;
+		}
+		return false;
+	}
+	
+	
 	
 	
 	public static ArrayList<Musician> getInstances() {
