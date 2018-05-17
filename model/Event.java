@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Event implements Serializable{
+public abstract class Event implements Serializable{
 	/**
 	 * 
 	 */
@@ -16,13 +16,22 @@ public class Event implements Serializable{
 	private Calendar cal; //choose a type
 	private String details;
 	
-	public Event(String name, Calendar cal, String details) {
-		
+	protected Event(String name, Calendar cal, String details) {
 		this.name = name;
 		this.cal = cal;
 		this.details = details;
 		
 		instances.add(this);
+	}
+	
+	static public boolean deleteEvent(String name) {
+		for(Event instance : instances) {
+			if(instance.name.toUpperCase().equals(name.toUpperCase())) {
+				instances.remove(instance);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

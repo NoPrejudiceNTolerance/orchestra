@@ -1,9 +1,11 @@
 package model;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class User implements Serializable{
+public class User implements Serializable {
 	/**
 	 * 
 	 */
@@ -12,16 +14,32 @@ public class User implements Serializable{
 	static private ArrayList<User> instances;
 	
 	private String login;
-	private String pass;
+	private String hashedPass;
+	
+	MessageDigest messageDigest;
 	
 	
 	
 	
 	public User(String login, String pass) {
 		this.login = login;
-		this.pass = pass;
+		
+		try {
+			messageDigest = MessageDigest.getInstance("SHA-256");
+		}
+		catch (NoSuchAlgorithmException e) {
+	        System.err.println("Error with SHA-256 algorithm");
+		}
+		
+		this.messageDigest.update(pass.getBytes());
+		this.hashedPass = new String(messageDigest.digest());
 		
 		instances.add(this);
+	}
+	
+	public boolean checkPass(String pass) {
+		this.messageDigest.update(pass.getBytes());
+		return (this.hashedPass.equals(new String(messageDigest.digest()))) ? true : false;
 	}
 	
 	
@@ -33,7 +51,8 @@ public class User implements Serializable{
 	}
 	
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.messageDigest.update(pass.getBytes());
+		this.hashedPass = new String(messageDigest.digest());
 	}
 	
 	public static ArrayList<User> getInstances() {

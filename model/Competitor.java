@@ -1,6 +1,6 @@
 package model;
 
-public class Competitor {
+public abstract class Competitor {
 	private String name;
 	
 	
